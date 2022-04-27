@@ -1,0 +1,6 @@
+---
+# handlers file for hadoop
+  - name: Reiniciar hadoop
+    service: name=hadoop state=restarted
+
+

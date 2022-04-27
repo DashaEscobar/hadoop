@@ -1,0 +1,8 @@
+---
+- name: Despligue completo de hadoop
+  hosts: all
+  become: true
+  roles:
+  - hdfsuser
+  - hadoop
+ 

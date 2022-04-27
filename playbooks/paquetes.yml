@@ -1,0 +1,17 @@
+---
+- name: Playbook de paquetes
+  hosts: all
+  tasks:
+   - name: update cache
+     apt:
+       update_cache: yes
+       cache_valid_time: 3600
+   - name: install nginx
+     apt:
+       name: nginx
+       state: present
+       update_cache: yes
+   - name: remove nginx
+     apt:
+       name: nginx
+       state: absent 

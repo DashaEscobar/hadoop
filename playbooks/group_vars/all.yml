@@ -1,0 +1,6 @@
+ansible_master: {name: ansible-master, ip: 172.16.2.186}
+nodo: {name: test-ansible, ip: 172.16.2.150}
+
+java_home: {dir: /usr/lib/jvm/java-1.8.0-openjdk-amd64}
+directorio: {dir: /home/hdfs/opt/hadoop/etc/hadoop}
+nodes: {datanode: /home/opt/hadoop_tmp/hdfs/datanode, namenode: /home/opt/hadoop_tmp/hdfs/namenode}

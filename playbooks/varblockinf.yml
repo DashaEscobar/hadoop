@@ -1,0 +1,15 @@
+---
+- name: Playbook de blockinfile
+  hosts: all
+  tasks:
+   - name: add to hosts
+     blockinfile:
+       path: /etc/hosts
+       block: |
+         #Ansible manager
+         {{ansible_master.name}}{{ansible_master.ip}}
+
+         #Nodo Ansible
+         {{nodo.name}}{{nodo.ip}}
+
+       marker: "#{mark} MESSAGE"

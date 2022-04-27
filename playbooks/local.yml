@@ -1,0 +1,9 @@
+---
+- name: Playbook basico que se ejecuta localmente
+  hosts: localhost
+  tasks:
+   - name: host up
+     ping:
+   - name: hostname
+     debug:
+       msg: "Machine name: ansible_master"

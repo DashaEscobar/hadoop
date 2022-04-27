@@ -1,0 +1,9 @@
+---
+- name: Playbook de test template
+  hosts: all
+  tasks:
+   - name: Template a file to /etc/file.conf
+     template:
+       src: /etc/ansible/playbooks/templates/ipNames.j2
+       dest: /home/ubuntu/sample-template.txt
+       owner: ubuntu

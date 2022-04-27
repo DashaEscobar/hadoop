@@ -1,0 +1,45 @@
+---
+# tasks file for hadoop
+- name: Update y upgrade apt packages
+  apt:
+    upgrade: yes
+    update_cache: yes
+
+- name: Instalar java 8
+  apt:
+        name: openjdk-8-jdk
+        state: latest
+        update_cache: yes
+
+- name: Instalar Hadoop
+  unarchive:
+        src: https://archive.apache.org/dist/hadoop/common/hadoop-3.2.2/hadoop-3.2.2.tar.gz
+        dest: /home/hdfs
+        remote_src: True
+
+- name: Configurar Hadoop enviroment
+  template: 
+        src: templates/hadoop-env.sh
+        dest: "{{ directorio.dir }}/hadoop-env.sh"
+
+- name: Configurar core site
+  template: 
+        src: templates/core-site.xml
+        dest: "{{ directorio.dir }}/core-site.xml"
+
+- name: Configurar hdfs site
+  template:
+        src: templates/hdfs-site.xml
+        dest: "{{ directorio.dir }}/hdfs-site.xml"
+  notify:
+        - "Reiniciar hadoop"
+
+- name: Configurar yarn
+  template:
+        src: templates/mapred-site.xml
+        dest: "{{ directorio.dir }}/mapred-site.xml"
+
+- name: Configurar variables de yarn
+  template:
+        src: templates/yarn-site.xml
+        dest: "{{ directorio.dir }}/yarn-site.xml"

@@ -1,0 +1,5 @@
+---
+# vars file for hadoop
+java_home: {dir: /usr/lib/jvm/java-1.8.0-openjdk-amd64}
+directorio: {dir: /home/hdfs/hadoop-3.2.2/etc/hadoop}
+nodes: {datanode: /home/hadoop_tmp/hdfs/datanode, namenode: /home/hadoop_tmp/hdfs/namenode}

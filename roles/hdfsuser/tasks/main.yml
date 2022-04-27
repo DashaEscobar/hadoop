@@ -1,0 +1,21 @@
+---
+# tasks file for hdfsuser
+- name: Crear grupo hdfs
+  ansible.builtin.group:
+        name: hdfs
+        state: present
+
+- name: Crear usuario hdfs
+  user:
+         name: hdfs
+         password:
+         groups:
+            - hdfs
+         state: present
+
+- name: Crear el directorio de hdfs
+  file:
+        path: home/hdfs
+        owner: hdfs
+        group: hdfs
+        state: directory
